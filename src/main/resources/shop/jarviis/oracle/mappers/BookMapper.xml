@@ -19,7 +19,7 @@
          where book_id like ${bookId}     
 	</select>
 	<select id="findByPubId" resultType="shop.jarviis.oracle.book.domain.BookDTO" parameterType="int">
-	select 
+	   select 
 			book_id bookId,
 			book_title bookTitle,
 			price,
@@ -27,5 +27,23 @@
 		 from books
          where pub_id like ${pubId}
 	</select>
-
+	<select id="findByBookTitle" resultType="shop.jarviis.oracle.book.domain.BookDTO" parameterType="string" >
+	select 
+			book_id bookId,
+			book_title bookTitle,
+			price,
+			pub_id pubId
+		 from books
+	where book_title like '%'|| #{value} || '%' 
+	<!-- 	where book_title like '% ${bookTitle}%'  -->
+	</select>
+	<select id="findByPrice" resultType="shop.jarviis.oracle.book.domain.BookDTO" parameterType="int">
+	select 
+			book_id bookId,
+			book_title bookTitle,
+			price,
+			pub_id pubId
+		 from books
+		where price >= ${price} 
+	</select>
 </mapper>
