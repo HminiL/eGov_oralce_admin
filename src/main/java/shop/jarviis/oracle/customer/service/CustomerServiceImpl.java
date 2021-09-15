@@ -11,30 +11,30 @@ import shop.jarviis.oracle.mappers.CustomerMapper;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-	@Autowired CustomerMapper custmomerMapper;
+	@Autowired CustomerMapper customerMapper;
 	@Override
 	public List<CustomerDTO> findAll() {
 		// TODO Auto-generated method stub
-		return custmomerMapper.findAll();
+		return customerMapper.findAll();
 	}
 
 
 	@Override
 	public List<CustomerDTO> findByCustName(String custName) {
 		// TODO Auto-generated method stub
-		return custmomerMapper.findByCustName(custName);
+		return customerMapper.findByCustName(custName);
 	}
 
 	@Override
 	public List<CustomerDTO> findByAddress(String address) {
 		// TODO Auto-generated method stub
-		return custmomerMapper.findByAddress(address);
+		return customerMapper.findByAddress(address);
 	}
 
 	@Override
 	public List<CustomerDTO> findByPhone(String phone) {
 		// TODO Auto-generated method stub
-		return custmomerMapper.findByPhone(phone);
+		return customerMapper.findByPhone(phone);
 	}
 
 
@@ -42,7 +42,15 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public CustomerDTO findByCustId(int custId) {
 		// TODO Auto-generated method stub
-		return custmomerMapper.findByCustId(custId);
+		return customerMapper.findByCustId(custId);
+	}
+
+
+	@Override
+	public void save(CustomerDTO customer) {
+		customerMapper.save(customer);
+		// TODO Auto-generated method stub
+		
 	}
 
 	

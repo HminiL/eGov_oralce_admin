@@ -45,4 +45,9 @@
 		 from customers
 		 where phone like '%'|| #{value} || '%' 
 	</select>
+	<insert id="save" parameterType="shop.jarviis.oracle.customer.domain.CustomerDTO">
+	insert into
+	customers (cust_id, cust_name, address, phone)
+	values (${custId}, #{custName}, #{address}, #{phone})
+	</insert>
 </mapper>

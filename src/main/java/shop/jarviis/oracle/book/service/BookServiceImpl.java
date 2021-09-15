@@ -43,6 +43,13 @@ public class BookServiceImpl implements BookService{
 		return bookMapper.findByPrice(price);
 	}
 
+	@Override
+	public void save(BookDTO book) {
+		// TODO Auto-generated method stub
+		bookMapper.save(book);
+		
+	}
+
 	
 
 	

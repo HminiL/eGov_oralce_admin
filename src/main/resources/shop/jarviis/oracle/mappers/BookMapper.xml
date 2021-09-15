@@ -46,4 +46,10 @@
 		 from books
 		where price >= ${price} 
 	</select>
+	<insert id="save" parameterType="shop.jarviis.oracle.book.domain.BookDTO">
+	insert into
+	books (book_id, book_title, pub_id, price)
+	values (${bookId}, #{bookTitle}, ${pubId}, ${price})
+	
+	</insert>
 </mapper>
