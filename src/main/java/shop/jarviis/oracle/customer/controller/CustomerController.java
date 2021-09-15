@@ -19,63 +19,61 @@ public class CustomerController {
 	@Autowired CustomerService customerService;
 	@Autowired CustomerDTO customer;
 	
-	@RequestMapping(value="/join", method= {RequestMethod.POST})
-	public String join(
-			@RequestParam("custId") int custId,
-			@RequestParam("custName") String custName,
-			@RequestParam("address") String address,
-			@RequestParam("phone") String phone) {
-		System.out.println("custId : "+custId);
-		System.out.println("custName : "+custName);
-		System.out.println("address : "+address);
-		System.out.println("phone : "+phone);
-		customer = new CustomerDTO();
-		customer.setCustId(custId);
-		customer.setAddress(address);
-		customer.setCustName(custName);
-		customer.setPhone(phone);
+
+	@RequestMapping(value="/register", method= {RequestMethod.POST})
+	public String save(CustomerDTO customer) {
+		System.out.println(customer.toString());
 		customerService.save(customer);
+		return "회원가입 성공";
 		
-		return "/user/Join";
 	}
 	
+	@RequestMapping(value = "/update" , method= {RequestMethod.POST})
+	public void update(CustomerDTO customer) {
+		customerService.update(customer);
+		System.out.println("update 완료 : "+customer);
+	}
+	
+	@RequestMapping("/list")
+	public String findAll () {
+		List<CustomerDTO> customers = customerService.findAll();
+		for (CustomerDTO customer : customers) {
+			System.out.println(customer.toString());
+		}
+		return "모든 회원 찾기";
+	}
+	
+
 		@RequestMapping(value="/login", method= {RequestMethod.POST})
 		public String login() {
 			return "로그인 성공";
 	}
 	
-	@RequestMapping("/")
-	public void findAll() {
-		List<CustomerDTO> customers = customerService.findAll();
-		for(CustomerDTO customer : customers) {
-			System.out.println(customer.toString());
-		}
-	}
-	@RequestMapping("/customers/ctId/{custId}")
-	public void findByCustId(@PathVariable int custId) {
-		System.out.println(custId);
-		System.out.println(customerService.findByCustId(custId).toString());
+	@RequestMapping("/detail")
+	public String findById(@RequestParam("custId") int custId) {
+		System.out.println(customerService.findById(custId).toString());
+		return "아이디로 찾기";
 		
 	}
 
-	@RequestMapping("/customers/ctName/{custName}")
-	public void findByCustName(@PathVariable String custName) {
-		List<CustomerDTO> customers = customerService.findByCustName(custName);
+	@RequestMapping("/detail/name")
+	public void findByName(@RequestParam("custName") String custName) {
+		List<CustomerDTO> customers = customerService.findByName(custName);
 		for(CustomerDTO customer : customers) {
 			System.out.println(customer.toString());
 		}
 	}
 	
-	@RequestMapping("/customers/ctAddress/{address}")
-	public void findByAddress(@PathVariable String address) {
+	@RequestMapping("/address")
+	public void findByAddress(@RequestParam("address") String address) {
 		List<CustomerDTO> customers = customerService.findByAddress(address);
 		for(CustomerDTO customer : customers) {
 			System.out.println(customer.toString());
 		}
 	}
 	
-	@RequestMapping("/customers/ctPhone/{phone}")
-	public void findByPhone(@PathVariable String phone) {
+	@RequestMapping("/phone")
+	public void findByPhone(@RequestParam("phone") String phone) {
 	List<CustomerDTO> customers = customerService.findByPhone(phone);
 	for(CustomerDTO customer : customers) {
 		System.out.println(customer.toString());

@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import shop.jarviis.oracle.common.GenericInterface;
 import shop.jarviis.oracle.customer.domain.CustomerDTO;
 
 @Component
-public interface CustomerService {
-	public List<CustomerDTO> findAll();
-	public CustomerDTO findByCustId(int custId);
-	public List<CustomerDTO> findByCustName(String custName);
-	public List<CustomerDTO> findByAddress(String address);
+public interface CustomerService extends GenericInterface<CustomerDTO, Integer>{
+
+	public List<CustomerDTO> findByName(String custName);
+	public List<CustomerDTO> findByAddress(String Address);
 	public List<CustomerDTO> findByPhone(String phone);
-	public void save(CustomerDTO customer);
+	
 }

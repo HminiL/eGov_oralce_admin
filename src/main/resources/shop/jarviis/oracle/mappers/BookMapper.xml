@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.jarviis.oracle.mappers.BookMapper">
-	<select id="findAll" resultType="shop.jarviis.oracle.book.domain.BookDTO">
+	<select id="findAll" resultType="book">
 		select 
 			book_id bookId,
 			book_title bookTitle,
@@ -9,7 +9,7 @@
 			pub_id pubId
 		 from books
 	</select>
-	<select id="findById" resultType="shop.jarviis.oracle.book.domain.BookDTO" parameterType="int">
+	<select id="findById" resultType="book" parameterType="int">
 	  select 
 			book_id bookId,
 			book_title bookTitle,
@@ -18,7 +18,7 @@
 		 from books
          where book_id like ${bookId}     
 	</select>
-	<select id="findByPubId" resultType="shop.jarviis.oracle.book.domain.BookDTO" parameterType="int">
+	<select id="findByPubId" resultType="book" parameterType="int">
 	   select 
 			book_id bookId,
 			book_title bookTitle,
@@ -27,7 +27,7 @@
 		 from books
          where pub_id like ${pubId}
 	</select>
-	<select id="findByBookTitle" resultType="shop.jarviis.oracle.book.domain.BookDTO" parameterType="string" >
+	<select id="findByBookTitle" resultType="book" parameterType="string" >
 	select 
 			book_id bookId,
 			book_title bookTitle,
@@ -37,7 +37,7 @@
 	where book_title like '%'|| #{value} || '%' 
 	<!-- 	where book_title like '% ${bookTitle}%'  -->
 	</select>
-	<select id="findByPrice" resultType="shop.jarviis.oracle.book.domain.BookDTO" parameterType="int">
+	<select id="findByPrice" resultType="book" parameterType="int">
 	select 
 			book_id bookId,
 			book_title bookTitle,
@@ -46,7 +46,7 @@
 		 from books
 		where price >= ${price} 
 	</select>
-	<insert id="save" parameterType="shop.jarviis.oracle.book.domain.BookDTO">
+	<insert id="save" parameterType="book">
 	insert into
 	books (book_id, book_title, pub_id, price)
 	values (${bookId}, #{bookTitle}, ${pubId}, ${price})

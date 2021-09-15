@@ -1,4 +1,4 @@
-package shop.jarviis.oracle;
+package shop.jarviis.oracle.common;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("contextPath")
 @Controller
 public class HomeController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -47,6 +45,16 @@ public class HomeController {
 		
 		
 		return "user/Loign";
+	}
+	
+	//get 방식은 method 생략 가능(default)
+	@RequestMapping(value="/customers/detailform")
+	public String detail() {
+		return "user/Detail";
+	}
+	@RequestMapping(value="/customers/updateform")
+	public String update() {
+		return "user/Update";
 	}
 	
 	@RequestMapping(value = "/bookform", method = RequestMethod.GET)

@@ -12,23 +12,49 @@ import shop.jarviis.oracle.mappers.CustomerMapper;
 public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired CustomerMapper customerMapper;
+
+	@Override
+	public void save(CustomerDTO t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public CustomerDTO findById(Integer id) {
+		// TODO Auto-generated method stub
+		return customerMapper.findById(id);
+	}
+
 	@Override
 	public List<CustomerDTO> findAll() {
 		// TODO Auto-generated method stub
 		return customerMapper.findAll();
 	}
 
-
 	@Override
-	public List<CustomerDTO> findByCustName(String custName) {
+	public void update(CustomerDTO t) {
 		// TODO Auto-generated method stub
-		return customerMapper.findByCustName(custName);
+		customerMapper.update(t);
+		
 	}
 
 	@Override
-	public List<CustomerDTO> findByAddress(String address) {
+	public void delete(Integer id) {
 		// TODO Auto-generated method stub
-		return customerMapper.findByAddress(address);
+		customerMapper.delete(id);
+		
+	}
+
+	@Override
+	public List<CustomerDTO> findByName(String custName) {
+		// TODO Auto-generated method stub
+		return customerMapper.findByName(custName);
+	}
+
+	@Override
+	public List<CustomerDTO> findByAddress(String Address) {
+		// TODO Auto-generated method stub
+		return customerMapper.findByAddress(Address);
 	}
 
 	@Override
@@ -36,23 +62,7 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return customerMapper.findByPhone(phone);
 	}
-
-
-
-	@Override
-	public CustomerDTO findByCustId(int custId) {
-		// TODO Auto-generated method stub
-		return customerMapper.findByCustId(custId);
-	}
-
-
-	@Override
-	public void save(CustomerDTO customer) {
-		customerMapper.save(customer);
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	
 
 }
