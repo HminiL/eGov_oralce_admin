@@ -34,13 +34,18 @@ public class CustomerController {
 		System.out.println("update 완료 : "+customer);
 	}
 	
+	@RequestMapping(value = "/update", method= {RequestMethod.POST})
+	public void delete(CustomerDTO customer) {
+		System.out.println("delete 완료 : ");
+	}
+	
 	@RequestMapping("/list")
-	public String findAll () {
+	public List<CustomerDTO> findAll () {
 		List<CustomerDTO> customers = customerService.findAll();
 		for (CustomerDTO customer : customers) {
 			System.out.println(customer.toString());
 		}
-		return "모든 회원 찾기";
+		return customers;
 	}
 	
 
@@ -57,11 +62,12 @@ public class CustomerController {
 	}
 
 	@RequestMapping("/detail/name")
-	public void findByName(@RequestParam("custName") String custName) {
+	public List<CustomerDTO> findByName(@RequestParam("custName") String custName) {
 		List<CustomerDTO> customers = customerService.findByName(custName);
 		for(CustomerDTO customer : customers) {
 			System.out.println(customer.toString());
 		}
+		return customers;
 	}
 	
 	@RequestMapping("/address")
