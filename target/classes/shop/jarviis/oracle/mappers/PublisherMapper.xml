@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="shop.jarviis.oracle.mappers.PublisherMapper">
-<insert id="save" parameterType="shop.jarviis.oracle.publisher.domain.PublisherDTO">
-insert into
-publishers (pub_id, pub_name, mgr_name, phone)
-values(${pubId}, #{pubName}, #{mgrName}, #{phone})
-</insert>
-</mapper>
