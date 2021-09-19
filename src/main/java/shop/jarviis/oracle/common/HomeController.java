@@ -55,8 +55,25 @@ public class HomeController {
 	public String book() {
 		
 		
-		return "book/Book";
+		return "book/Detail";
 	}
+	
+	@RequestMapping("books/listform")
+	public String listDelete() {
+		return "book/List";
+	}
+	
+	@RequestMapping("books/registerform")
+	public String bookSave() {
+		return "book/Register";
+	}
+	
+	@RequestMapping("books/updateform")
+	public String bookUpdate() {
+		return "book/Update";
+	}
+	
+	
 	
 	@RequestMapping(value = "/orderform", method = RequestMethod.GET)
 	public String order() {

@@ -45,7 +45,7 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public String findByPubId(int pubId) {
+	public List<BookDTO> findByPubId(int pubId) {
 		// TODO Auto-generated method stub
 		return bookMapper.findByPubId(pubId);
 	}

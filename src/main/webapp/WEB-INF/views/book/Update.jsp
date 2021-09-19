@@ -8,21 +8,22 @@
 
 <h2>개인정보 수정</h2>
 
-<form action="<%= application.getContextPath() %>/customers/update" method="post">
+<form action="<%= application.getContextPath() %>/books/update" method="post">
   <div class="container">
-    <label for="custId"><b>custId</b></label>
-    <input type="text" placeholder="custId" name="custId" required>
+  
+    <label for="bookId"><b>bookId</b></label>
+    <input type="text" placeholder="bookId" name="bookId" required>
+  
+    <label for="bookTitle"><b>bookTitle</b></label>
+    <input type="text" placeholder="bookTitle" name="bookTitle" required>
 
-    <label for="custName"><b>custName</b></label>
-    <input type="text" placeholder="Enter Password" name="custName" required>
-        
-    <label for="address"><b>address</b></label>
-    <input type="text" placeholder="custId" name="address" required>
-
-    <label for="phone"><b>phone</b></label>
-    <input type="text" placeholder="Enter Password" name="phone" required>
     
-    <button type="submit">개인정보 수정!</button>
+    <label for="pubId"><b>pubId</b></label>
+    <input type="text" placeholder="pubId" name="pubId" required>
+    
+    <label for="Price"><b>Price</b></label>
+    <input type="text" placeholder="Enter Price" name="Price" >
+    <button type="submit">책 정보!</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
@@ -31,12 +32,12 @@
 
 
 <h2>개인정보 삭제</h2>
-<form action="<%= application.getContextPath() %>/customers/delete" method="post">
+<form action="<%= application.getContextPath() %>/books/delete" method="get">
   <div class="container">
-    <label for="custId"><b>custId</b></label>
-    <input type="text" placeholder="custId" name="custId" required>
+   <label for="bookId"><b>bookId</b></label>
+    <input type="text" placeholder="bookId" name="bookId" required>
 
-    <button type="submit">개인정보 삭제!</button>
+    <button type="submit">책 삭제!</button>
   </div>
 </form>
 

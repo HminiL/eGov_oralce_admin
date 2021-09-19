@@ -46,6 +46,19 @@
 		 from books
 		where price >= ${price} 
 	</select>
+	<update id="update"  parameterType="book">
+	update
+		books set 
+		book_title = #{bookTitle},
+		pub_id = #{pubId},
+		price = #{price}
+		where book_id like ${bookId}
+	</update>
+	<delete id="delete" parameterType="book">
+	delete
+		from books
+		where book_id like ${bookId}
+	</delete>
 	<insert id="save" parameterType="book">
 	insert into
 	books (book_id, book_title, pub_id, price)

@@ -9,10 +9,10 @@
 <h2>책 상세</h2>
 
 <h3> findById</h3>
-<form action="<%= application.getContextPath() %>/books/detail" method="get">
+<form action="<%= application.getContextPath() %>/books/detail/id" method="get">
 
   <div class="container">
-    <label for="bookId"><b>custId</b></label>
+    <label for="bookId"><b>bookId</b></label>
     <input type="text" placeholder="bookId" name="bookId" required>
     
     <button type="submit">책 상세!</button>
@@ -21,11 +21,11 @@
 
 <h3>findByName</h3>
 
-<form action="<%= application.getContextPath() %>/books/detail/name" method="post">
+<form action="<%= application.getContextPath() %>/books/detail/bookTitle" method="get">
 
   <div class="container">
-    <label for="bookName"><b>custId</b></label>
-    <input type="text" placeholder="bookName" name="bookName" required>
+    <label for="bookTitle"><b>bookTitle</b></label>
+    <input type="text" placeholder="bookTitle" name="bookTitle" required>
     
     <button type="submit">책 상세!</button>
   </div>
@@ -33,10 +33,10 @@
 
 <h3>findByPubId</h3>
 
-<form action="<%= application.getContextPath() %>/books/detail/pubId" method="post">
+<form action="<%= application.getContextPath() %>/books/detail/pubId" method="get">
 
   <div class="container">
-    <label for="pubId"><b>custId</b></label>
+    <label for="pubId"><b>pubId</b></label>
     <input type="text" placeholder="pubId" name="pubId" required>
     
     <button type="submit">책 상세!</button>
